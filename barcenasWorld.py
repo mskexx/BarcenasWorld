@@ -54,7 +54,7 @@ class World(object):
     def print_superior(self):
         ''' Print superior border '''
 
-        sys.stdout.write("\n╔═")
+        sys.stdout.write("╔═")
         for i in xrange(0, self.size-1):
             sys.stdout.write("══╦═")
         sys.stdout.write("══╗\n")
@@ -90,32 +90,52 @@ class Problem():
     def process_steps(self):
         notMariano = True
         notCospedal = True
-        lie = False
+        mariano_lie = False
+        pos_mariano, info_mariano= -1, -1
+
         ''' Process the steps '''
+        print "THIS IS THE INITAL STATE OF BARCENAS WORLD"
         self.world.print_world(self.check_sat()) #Print initial status of the world
 
         for step in sys.argv[2:]:
             step = eval(step)
             pos = step[0] + self.size * (step[1]-1)
-            print "Procesando posicion " + str(step[0]) + "," + str(step[1]) +\
-                    " correspondiente a " + str(pos)
+            print "\n\n--> Processing position " + str(step[0]) + "," + str(step[1])
             self.discard.append(pos)
             self.smell(pos, step[2])
 
-            if step[3] != -1 and notMariano:
+            if step[3] != -1 and notMariano: #Mariano detected and not previously
                 notMariano = False
-                if lie:
-                    self.process_Mariano(pos, abs(step[3]-1))
+                if notCospedal: #Cospedal is not found yet, save Mariano Pos.
+                    print "-- Mariano says Barcenas is on direction " \
+                            + str(step[3]) + " from position: " + str(pos)
+                    pos_mariano = pos
+                    info_mariano = step[3]
+
                 else:
-                    self.process_Mariano(pos, step[3])
+                    if mariano_lie: #If Cospedal said before Mariano will lie
+                        self.process_Mariano(pos_mariano, abs(step[3]-1))
+                        #We reverse the process cause Mariano lied
 
-            if step[4] != -1 and notCospedal:
+                    else: #Mariano is telling the truth, said Cospedal
+                        self.process_Mariano(pos_mariano, step[3])
+
+            if step[4] != -1 and notCospedal: #Cospedal detected and not before
                 notCospedal = False
-                if step[4] and notMariano:
-                    lie = True
-                elif step[4] and not notMariano:
-                    self.process_Cospedal()
+                if step[4] and notMariano: #Mariano not found yet
+                    print " -- Cospedal warn that Mariano will LIE --"
+                    mariano_lie = True
 
+                elif not notMariano: #Mariano found before Cospedal
+                    if step[4]:
+                        print "-- Cospedal says Mariano LIED --"
+                        self.process_Mariano(pos_mariano, abs(info_mariano-1)) #Lie
+
+                    else:
+                        print "-- Cospedal says Mariano said the TRUTH --"
+                        self.process_Mariano(pos_mariano, info_mariano) #no Lie
+
+            print "-- ACTUAL MAP STATUS -- "
             self.world.print_world(self.check_sat())
 
     def smell(self, position, smelled):
@@ -127,10 +147,10 @@ class Problem():
             smells = [position + 1, position - 1, position + self.size, position - self.size]
 
         if smelled:
-            for i in xrange(1, self.globalsize+1):
-                if (i not in smells) and (i not in self.discard):
-                    self.discard.append(i)
-                    self.cnf.append([-i])
+            for pos in xrange(1, self.globalsize+1):
+                if (pos not in smells) and (pos not in self.discard):
+                    self.discard.append(pos)
+                    self.cnf.append([-pos])
         else:
             for pos in smells:
                 if (pos > 0) and (pos < self.globalsize):
@@ -148,13 +168,26 @@ class Problem():
                 solution.append(1)
         return solution
 
-    def process_pj():
+    def process_Mariano(self, pos, left):
+        # 1 Left || 0 Right
+        column = pos/self.size
+        res = pos%self.size
 
-    def process_Mariano(pos, left):
-        # 1 Izquierda || 0 Derecha
-        
-    def process_Cospedal():
-        #Darle la vuelta a los que decia mariano
+        if pos%self.size == 0: #Limit of colum
+            column = column - 1
+
+        if not left: #Barcenas is on right side of Mariano
+            for i in xrange(1, ((column + 1)*self.size) + 1): #Discard left side
+
+                if i not in self.discard:
+                    self.discard.append(i)
+                    self.cnf.append([-i])
+        else: #Barcenas is on left side of Mariano
+            for i in xrange((column*self.size) + 1, self.globalsize):
+                print i
+                if i not in self.discard:
+                    self.discard.append(i)
+                    self.cnf.append([-i])
 
     def getlimits(self):
         top = []
