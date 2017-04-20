@@ -88,6 +88,9 @@ class Problem():
         return cnf
 
     def process_steps(self):
+        notMariano = True
+        notCospedal = True
+        lie = False
         ''' Process the steps '''
         self.world.print_world(self.check_sat()) #Print initial status of the world
 
@@ -96,9 +99,23 @@ class Problem():
             pos = step[0] + self.size * (step[1]-1)
             print "Procesando posicion " + str(step[0]) + "," + str(step[1]) +\
                     " correspondiente a " + str(pos)
-
             self.discard.append(pos)
             self.smell(pos, step[2])
+
+            if step[3] != -1 and notMariano:
+                notMariano = False
+                if lie:
+                    self.process_Mariano(pos, abs(step[3]-1))
+                else:
+                    self.process_Mariano(pos, step[3])
+
+            if step[4] != -1 and notCospedal:
+                notCospedal = False
+                if step[4] and notMariano:
+                    lie = True
+                elif step[4] and not notMariano:
+                    self.process_Cospedal()
+
             self.world.print_world(self.check_sat())
 
     def smell(self, position, smelled):
@@ -130,6 +147,14 @@ class Problem():
             else:
                 solution.append(1)
         return solution
+
+    def process_pj():
+
+    def process_Mariano(pos, left):
+        # 1 Izquierda || 0 Derecha
+        
+    def process_Cospedal():
+        #Darle la vuelta a los que decia mariano
 
     def getlimits(self):
         top = []
