@@ -9,13 +9,10 @@ Pycosat
 
 
 ## Running
-<<<<<<< HEAD
-./barcenas_world  [size] [x1,y1,s1,m1,c1] [x2,y2,s2,m2,c2] ...
-=======
+
 ```
 ./barcenas_world  size [x1,y1,s1,m1,c1] [x2,y2,s2,m2,c2] ...
 ```
->>>>>>> 2d4a62a42a351b936c2313a9ca9a5c2a3c9d0380
 
 ## License
 GPL 3.0
@@ -45,12 +42,11 @@ POSITIONS
 | 1  | 7  | 13 | 19 | 25 | 31 |  
 
 
-The position is introduced by coords:
+The position is introduced by coords:  
 >(1,1) = 1  
 >(3,4) = 16  
 
-<<<<<<< HEAD
-Obtaning the position:
+Obtaning the position:  
 ```
 pos = size * (coord_x -1) + coord_y
 ```
@@ -66,8 +62,7 @@ Mariano found in (2,2) and Cospedal in (2,3)
 
  ```
 =======
-Obtaning the position: 
+Obtaning the position:
 ```
 pos = size * (coord_x -1) + coord_y
 ```
->>>>>>> 2d4a62a42a351b936c2313a9ca9a5c2a3c9d0380
