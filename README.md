@@ -76,6 +76,7 @@ pos = size * (coord_x -1) + coord_y
 ```
 ###### Output
 +--+ THIS IS THE INITIAL STATE OF BARCENAS WORLD +--+  
+
 | C1 | C2 | C3 | C4 | C5 | C6 |
 | -- | -- | -- | -- | -- | -- |
 | 1  | 1  | 1  | 1  | 1  | 1  |
@@ -88,6 +89,7 @@ pos = size * (coord_x -1) + coord_y
 
 --> Processing position (1,1)  
 -- ACTUAL MAP STATUS --  
+
 | C1 | C2 | C3 | C4 | C5 | C6 |
 | -- | -- | -- | -- | -- | -- |
 | 1  | 1  | 1  | 1  | 1  | 1  |
@@ -100,6 +102,7 @@ pos = size * (coord_x -1) + coord_y
 
 --> Processing position (1,2)  
 -- ACTUAL MAP STATUS --  
+
 | C1 | C2 | C3 | C4 | C5 | C6 |
 | -- | -- | -- | -- | -- | -- |
 | 1  | 1  | 1  | 1  | 1  | 1  |
@@ -113,6 +116,7 @@ pos = size * (coord_x -1) + coord_y
 --> Processing position (2,2)  
 -- Mariano says Barcenas is on direction 1 from position num: 8  
 -- ACTUAL MAP STATUS --  
+
 | C1 | C2 | C3 | C4 | C5 | C6 |
 | -- | -- | -- | -- | -- | -- |
 | 1  | 1  | 1  | 1  | 1  | 1  |
