@@ -1,6 +1,6 @@
 # Barcenas World Problem
 ### Aprendizaje y razonamiento automatico 2017
-> Universitat de LLeida
+> Universitat de Lleida
 
 
 ### Prerequisites
@@ -9,7 +9,9 @@ Pycosat
 
 
 ## Running
+```
 ./barcenas_world  size [x1,y1,s1,m1,c1] [x2,y2,s2,m2,c2] ...
+```
 
 ## License
 GPL 3.0
@@ -43,4 +45,7 @@ The position is introduced by coords:
 >(1,1) = 1  
 >(3,4) = 16  
 
-Obtaning the position: pos = size * (coord_x -1) + coord_y
+Obtaning the position: 
+```
+pos = size * (coord_x -1) + coord_y
+```
