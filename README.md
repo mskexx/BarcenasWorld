@@ -191,6 +191,7 @@ pos = size * (coord_x -1) + coord_y
 
 --> Processing position (3,1)  
 -- ACTUAL MAP STATUS --  
+
 | C1 | C2 | C3 | C4 | C5 |
 | -- | -- | -- | -- | -- |
 | 1  | 1  | 1  | 1  | 1  |
@@ -238,7 +239,8 @@ pos = size * (coord_x -1) + coord_y
 
 --> Processing position (3,5)
 -- ACTUAL MAP STATUS --
->NOTA: Sensor de olfato ha detectado aqui
+>NOTA: Sensor de olfato ha detectado aqui  
+
 | C1 | C2 | C3 | C4 | C5 |
 | -- | -- | -- | -- | -- |
 | 0  | 1  | 0  | 1  | 0  |
