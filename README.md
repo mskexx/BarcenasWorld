@@ -27,7 +27,8 @@ In order to use SAT Solver, we assign every position on the map with a number
 Starting from left bot position and finishing in top right position.
 
 For example in a 6x6 world:
-POSITIONS  
+POSITIONS
+| C1 | C2 | C3 | C4 | C5 | C6 |
 | -- | -- | -- | -- | -- | -- |
 | 6  | 12 | 18 | 24 | 30 | 36 |
 | 5  | 11 | 17 | 23 | 29 | 35 |
