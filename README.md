@@ -9,7 +9,7 @@ Pycosat
 
 
 ## Running
-./barcenas_world  size [x1,y1,s1,m1,c1] [x2,y2,s2,m2,c2] ...
+./barcenas_world  [size] [x1,y1,s1,m1,c1] [x2,y2,s2,m2,c2] ...
 
 ## License
 GPL 3.0
@@ -23,7 +23,7 @@ of the suspect position
 Every info collected is added into a CNF used by pycosat.
 
 ### IMPORTANT INFORMATION ABOUT SCHEMA:
-In order to use SAT Solver, we assign every position on the map with a number
+In order to use SAT Solver, we assign every position on the map with a number  
 Starting from left bot position and finishing in top right position.
 
 For example in a 6x6 world:
@@ -43,4 +43,18 @@ The position is introduced by coords:
 >(1,1) = 1  
 >(3,4) = 16  
 
-Obtaning the position: pos = size * (coord_x -1) + coord_y
+Obtaning the position:
+```
+pos = size * (coord_x -1) + coord_y
+```
+### Examples
+Mariano found in (2,2) and Cospedal in (2,3)  
+ ```
+ ./barcenas_world.py 6 [1,1,0,-1,-1] [1,2,0,-1,-1] [2,2,0,1,-1] [2,3,0,-1,1]  
+ ```
+
+ Smell Barcenas in (4,5)  
+ ```
+ ./barcenas_world.py 8 [1,1,0,-1,-1] [2,1,0,-1,-1] [3,1,0,-1,-1] [3,2,0,-1,-1] [3,3,0,-1,-1] [3,4,0,-1,-1] [3,5,0,-1,-1] [4,5,1,-1,-1]  
+
+ ```
