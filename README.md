@@ -1,6 +1,6 @@
 # Barcenas World Problem
 ### Aprendizaje y razonamiento automatico 2017
-> Universitat de LLeida
+> Universitat de Lleida
 
 
 ### Prerequisites
@@ -9,7 +9,13 @@ Pycosat
 
 
 ## Running
+<<<<<<< HEAD
 ./barcenas_world  [size] [x1,y1,s1,m1,c1] [x2,y2,s2,m2,c2] ...
+=======
+```
+./barcenas_world  size [x1,y1,s1,m1,c1] [x2,y2,s2,m2,c2] ...
+```
+>>>>>>> 2d4a62a42a351b936c2313a9ca9a5c2a3c9d0380
 
 ## License
 GPL 3.0
@@ -43,6 +49,7 @@ The position is introduced by coords:
 >(1,1) = 1  
 >(3,4) = 16  
 
+<<<<<<< HEAD
 Obtaning the position:
 ```
 pos = size * (coord_x -1) + coord_y
@@ -58,3 +65,9 @@ Mariano found in (2,2) and Cospedal in (2,3)
  ./barcenas_world.py 8 [1,1,0,-1,-1] [2,1,0,-1,-1] [3,1,0,-1,-1] [3,2,0,-1,-1] [3,3,0,-1,-1] [3,4,0,-1,-1] [3,5,0,-1,-1] [4,5,1,-1,-1]  
 
  ```
+=======
+Obtaning the position: 
+```
+pos = size * (coord_x -1) + coord_y
+```
+>>>>>>> 2d4a62a42a351b936c2313a9ca9a5c2a3c9d0380
