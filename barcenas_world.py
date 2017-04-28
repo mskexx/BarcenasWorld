@@ -35,7 +35,8 @@ class World(object):
 
         for i in xrange(1, self.size+1): #Print body
             for j in xrange(0, self.size):
-                sys.stdout.write("║ " + str(positions[self.size-i+(j*self.size)])+ " ")
+                sys.stdout.write("║ " + str(positions[self.size-i+\
+                (j*self.size)])+ " ")
             sys.stdout.write("║")
             if i < self.size:
                 self.print_row()
@@ -186,7 +187,7 @@ class Problem(object):
             column = column - 1
 
         if not left: #Barcenas is on right side of Mariano
-            for i in xrange(1, ((column + 1)*self.size) + 1): #Discard left side
+            for i in xrange(1, ((column + 1)*self.size) + 1): #Discard leftside
                 if i not in self.discard:
                     self.discard.append(i) #Discard Positions = Add Clause CNF
                     self.cnf.append([-i])
